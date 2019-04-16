@@ -84,6 +84,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include <string.h>
 #include <math.h>
 #include <time.h>
@@ -3354,7 +3355,7 @@ inline bool tetgenmesh::isfacehasedge(face* s, point tend1, point tend2) {
 
 inline bool tetgenmesh::issymexist(triface* t) {
   tetrahedron *ptr = (tetrahedron *) 
-    ((unsigned long)(t->tet[t->loc]) & ~(unsigned long)7l);
+    ((uint64_t)(t->tet[t->loc]) & ~(uint64_t)7l);
   return ptr != dummytet;
 }
 
